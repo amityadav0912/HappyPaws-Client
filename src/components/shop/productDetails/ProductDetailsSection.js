@@ -7,7 +7,7 @@ import ProductDetailsSectionTwo from "./ProductDetailsSectionTwo";
 
 import { getSingleProduct, sendMail } from "./FetchApi";
 import { cartListProduct } from "../partials/FetchApi";
-import nodemailer from 'nodemailer';
+//import nodemailer from 'nodemailer';
 
 import { isWishReq, unWishReq, isWish } from "../home/Mixins";
 import { updateQuantity, slideImage, addToCart, cartList } from "./Mixins";
@@ -33,30 +33,32 @@ const ProductDetailsSection = (props) => {
     JSON.parse(localStorage.getItem("wishList"))
   ); // Wishlist State Control
 
-    const [email, setEmail] = useState('');
-    const [phone, setPhone] = useState('');
-    const [emailSent, setEmailSent] = useState(false);
-    const handleSubmit = async (e) => {
-      e.preventDefault();
-      // Send email using serverless function
-      const petName = sProduct.pName;
-      
+  const [email, setEmail] = useState("");
+  const [phone, setPhone] = useState("");
+  const [emailSent, setEmailSent] = useState(false);
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    // Send email using serverless function
+    const petName = sProduct.pName;
 
-      let response = await sendMail({
-         email, phone, id, petName,});
-     
-      if (response.status==200) {
-        
-        console.log('Email sent successfully!');
-// history.push("/contact-us");
-setEmailSent(true);
-        
-        // Handle success case, e.g., show a success message to the user
-      } else {
-        console.log('Failed to send email');
-        // Handle failure case, e.g., show an error message to the user
-      }
-    };
+    let response = await sendMail({
+      email,
+      phone,
+      id,
+      petName,
+    });
+
+    if (response.status == 200) {
+      console.log("Email sent successfully!");
+      // history.push("/contact-us");
+      setEmailSent(true);
+
+      // Handle success case, e.g., show a success message to the user
+    } else {
+      console.log("Failed to send email");
+      // Handle failure case, e.g., show an error message to the user
+    }
+  };
 
   useEffect(() => {
     fetchData();
@@ -154,10 +156,9 @@ setEmailSent(true);
             />
           </div>
           <div className="col-span-2 md:col-span-7">
-            <div className="relative"  >
+            <div className="relative">
               <img
-                style={{ width: '500px', height: '500px' }}
-
+                style={{ width: "500px", height: "500px" }}
                 src={`${apiURL}/uploads/products/${sProduct.pImages[count]}`}
                 alt="Pic"
               />
@@ -245,41 +246,49 @@ setEmailSent(true);
             <div className="my-4 md:my-6 text-gray-600">
               {sProduct.pDescription}
             </div>
-                <Fragment>
-                    <form onSubmit={handleSubmit}>
-                    <div className="flex flex-col py-2">
-                    <label htmlFor="address" className="pb-2">
-                      Email
-                    </label>
-                    <input
-                       type="email"
-                       placeholder="Email"
-                       value={email}
-                       onChange={(e) => setEmail(e.target.value)}
-                        id="email"
-                       className="border px-4 py-2"
-                    />
-
-                    </div>
-                  <div className="flex flex-col py-2 mb-2">
-                    <label htmlFor="phone" className="pb-2">
-                      Phone
-                    </label>
-                    <input
-                      type="tel"
-                      placeholder="Phone"
-                      value={phone}
-                      onChange={(e) => setPhone(e.target.value)}
-                      id="phone"
-                      className="border px-4 py-2"
-                    />
-                  </div>
-                  <button type="submit"  className="w-full px-4 py-2 text-center text-white font-semibold cursor-pointer"
-                    style={{ background: "#303031" }} >I wanna Adobt</button>
-                  {emailSent && (<p style={{ margin: '10px' }}>Email has been Received and we will Contact You Soon</p>)}
-                  </form>
-                </Fragment>
-              {/* Incart and out of stock button End */}
+            <Fragment>
+              <form onSubmit={handleSubmit}>
+                <div className="flex flex-col py-2">
+                  <label htmlFor="address" className="pb-2">
+                    Email
+                  </label>
+                  <input
+                    type="email"
+                    placeholder="Email"
+                    value={email}
+                    onChange={(e) => setEmail(e.target.value)}
+                    id="email"
+                    className="border px-4 py-2"
+                  />
+                </div>
+                <div className="flex flex-col py-2 mb-2">
+                  <label htmlFor="phone" className="pb-2">
+                    Phone
+                  </label>
+                  <input
+                    type="tel"
+                    placeholder="Phone"
+                    value={phone}
+                    onChange={(e) => setPhone(e.target.value)}
+                    id="phone"
+                    className="border px-4 py-2"
+                  />
+                </div>
+                <button
+                  type="submit"
+                  className="w-full px-4 py-2 text-center text-white font-semibold cursor-pointer"
+                  style={{ background: "#303031" }}
+                >
+                  I wanna Adobt
+                </button>
+                {emailSent && (
+                  <p style={{ margin: "10px" }}>
+                    Email has been Received and we will Contact You Soon
+                  </p>
+                )}
+              </form>
+            </Fragment>
+            {/* Incart and out of stock button End */}
           </div>
         </div>
       </section>
