@@ -22,7 +22,6 @@ const Navber = (props) => {
       ? dispatch({ type: "loginSignupModalToggle", payload: false })
       : dispatch({ type: "loginSignupModalToggle", payload: true });
 
-
   return (
     <Fragment>
       {/* Navber Section */}
@@ -39,10 +38,9 @@ const Navber = (props) => {
               className="hover:bg-gray-200 px-4 py-3 rounded-lg font-light tracking-widest hover:text-gray-800 cursor-pointer"
               onClick={(e) => history.push("/blog")}
             >
-              Blog
+              Blogg
             </span>
-            
-           
+
             <span
               className="hover:bg-gray-200 px-4 py-3 rounded-lg font-light tracking-widest hover:text-gray-800 cursor-pointer"
               onClick={(e) => history.push("/contact-us")}
@@ -333,33 +331,29 @@ const Navber = (props) => {
             )}
             {/* Cart Modal Button */}
             <div
-              
               onClick={(e) => history.push("/checkout")}
               className="hover:bg-gray-200 px-2 py-2 rounded-lg relative cursor-pointer"
               title="Cart"
             >
-                    <div className="flex items-center">
-                    <svg
-                className={`${
-                     "fill-current text-red-800"
-                  
-                } w-8 h-8 text-gray-600 cursor-pointer`}
-                fill="none"
-                stroke="currentColor"
-                viewBox="0 0 24 24"
-                xmlns="http://www.w3.org/2000/svg"
-              >
-                <path
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  strokeWidth={2}
-                  d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z"
-                />
-              </svg>
-                <span className="ml-2 font-medium text-gray-600 hover:text-gray-800">Donate</span>
-        </div>
-
-            
+              <div className="flex items-center">
+                <svg
+                  className={`${"fill-current text-red-800"} w-8 h-8 text-gray-600 cursor-pointer`}
+                  fill="none"
+                  stroke="currentColor"
+                  viewBox="0 0 24 24"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    strokeWidth={2}
+                    d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z"
+                  />
+                </svg>
+                <span className="ml-2 font-medium text-gray-600 hover:text-gray-800">
+                  Donate
+                </span>
+              </div>
             </div>
           </div>
         </div>
