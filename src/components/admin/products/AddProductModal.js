@@ -271,7 +271,7 @@ const AddProductDetail = ({ categories }) => {
             </div>
             <div className="flex space-x-1 py-4">
               <div className="w-1/2 flex flex-col space-y-1">
-                <label htmlFor="quantity">PET IN SHELTER *</label>
+                <label htmlFor="quantity">PET IN SHELTER UNTIL*</label>
                 <input
                   value={fData.pQuantity}
                   onChange={(e) =>

@@ -60,7 +60,8 @@ const AllProduct = ({ products }) => {
                   <img
                     onClick={(e) => history.push(`/products/${item._id}`)}
                     className="w-full object-cover object-center cursor-pointer"
-                    src={`${apiURL}/uploads/products/${item.pImages[0]}`}
+                    style={{ height: "330px", width: "450px" }}
+                    src={item.photos[0].secure_url}
                     alt=""
                   />
                   <div className="flex items-center justify-between mt-2">
@@ -92,7 +93,7 @@ const AllProduct = ({ products }) => {
                   <div>Age:{item.pPrice}</div>
                   <div className="absolute top-0 right-0 mx-2 my-2 md:mx-4">
                     <svg
-                      className="w-5 h-5 md:w-6 md:h-6 cursor-pointer text-yellow-700"
+                      className="w-5 h-5 md:w-6 md:h-6 cursor-pointer text-yellow-700  transition-all duration-300 ease-in"
                       fill="none"
                       stroke="currentColor"
                       viewBox="0 0 24 24"

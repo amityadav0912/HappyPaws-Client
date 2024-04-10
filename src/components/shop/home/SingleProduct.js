@@ -63,12 +63,19 @@ const SingleProduct = (props) => {
           return (
             <Fragment key={index}>
               <div className="relative col-span-1 m-2">
-                <img
+                {/* <img
                   onClick={(e) => history.push(`/products/${item._id}`)}
                   className="w-full object-cover object-center cursor-pointer"
                   style={{ height: "330px", width: "450px" }}
                   src={`${apiURL}/uploads/products/${item.pImages[0]}`}
                   alt=""
+                /> */}
+                <img
+                  onClick={(e) => history.push(`/products/${item._id}`)}
+                  className="w-full object-cover object-center cursor-pointer"
+                  style={{ height: "330px", width: "450px" }}
+                  src={item.photos[0].secure_url}
+                  alt={item.pName}
                 />
 
                 <div className="flex items-center justify-between mt-2">

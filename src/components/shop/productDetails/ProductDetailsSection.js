@@ -75,7 +75,7 @@ const ProductDetailsSection = (props) => {
             type: "singleProductDetail",
             payload: responseData.Product,
           }); // Dispatch in layout context
-          setPimages(responseData.Product.pImages);
+          setPimages(responseData.Product.photos);
           dispatch({ type: "loading", payload: false });
           layoutDispatch({ type: "inCart", payload: cartList() }); // This function change cart in cart state
         }
@@ -141,7 +141,7 @@ const ProductDetailsSection = (props) => {
               className={`${
                 count === 0 ? "" : "opacity-25"
               } cursor-pointer w-20 h-20 object-cover object-center`}
-              src={`${apiURL}/uploads/products/${sProduct.pImages[0]}`}
+              src={sProduct.photos[0].secure_url}
               alt="pic"
             />
             <img
@@ -151,7 +151,7 @@ const ProductDetailsSection = (props) => {
               className={`${
                 count === 1 ? "" : "opacity-25"
               } cursor-pointer w-20 h-20 object-cover object-center`}
-              src={`${apiURL}/uploads/products/${sProduct.pImages[1]}`}
+              src={sProduct.photos[1].secure_url}
               alt="pic"
             />
           </div>
@@ -159,7 +159,7 @@ const ProductDetailsSection = (props) => {
             <div className="relative">
               <img
                 style={{ width: "500px", height: "500px" }}
-                src={`${apiURL}/uploads/products/${sProduct.pImages[count]}`}
+                src={sProduct.photos[count].secure_url}
                 alt="Pic"
               />
               <div className="absolute inset-0 flex justify-between items-center mb-4">

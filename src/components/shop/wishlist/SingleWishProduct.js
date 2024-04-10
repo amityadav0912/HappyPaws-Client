@@ -56,7 +56,7 @@ const Product = () => {
                   <img
                     onClick={(e) => history.push(`/products/${product._id}`)}
                     className="cursor-pointer md:h-20 md:w-20 object-cover object-center"
-                    src={`${apiURL}/uploads/products/${product.pImages[0]}`}
+                    src={product.photos[0].secure_url}
                     alt="wishListproduct"
                   />
                   <div className="text-lg md:ml-6 truncate">
@@ -68,9 +68,13 @@ const Product = () => {
                     {product.pPrice}
                   </div>
                   {product.pQuantity > 0 ? (
-                    <div className="text-green-500 my-1 md:my-0">Still in Shelter</div>
+                    <div className="text-green-500 my-1 md:my-0">
+                      Still in Shelter
+                    </div>
                   ) : (
-                    <div className="text-red-500 my-1 md:my-0">In Better Place</div>
+                    <div className="text-red-500 my-1 md:my-0">
+                      In Better Place
+                    </div>
                   )}
 
                   <div

@@ -134,7 +134,8 @@ const AdminNavber = (props) => {
                       stroke="currentColor"
                       viewBox="0 0 20 10"
                       xmlns="http://www.w3.org/2000/svg"
-                      width="16" height="36"
+                      width="16"
+                      height="36"
                     >
                       <path
                         strokeLinecap="round"
